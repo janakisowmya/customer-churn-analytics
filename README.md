@@ -80,6 +80,8 @@ python demo_server.py
 ```
 Then open `frontend/index.html` in your browser.
 
+![Demo Prediction Dashboard](screenshots/demo_prediction.png)
+
 ---
 
 ## 📊 Features
