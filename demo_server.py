@@ -143,7 +143,7 @@ def customers():
 if __name__ == '__main__':
     print("🚀 Starting Demo API Server...")
     print("📊 Loaded {} customer records".format(len(df)))
-    print("🔗 API running at: http://localhost:8000")
+    print("🔗 API running at: http://localhost:8001")
     print("\n📍 Available endpoints:")
     print("   - GET  /api/analytics/churn-rate/")
     print("   - GET  /api/analytics/segment-analysis/")
@@ -151,4 +151,4 @@ if __name__ == '__main__':
     print("   - GET  /api/customers/")
     print("\n✨ Open frontend/index.html in your browser!")
     
-    app.run(host='0.0.0.0', port=8000, debug=True)
+    app.run(host='0.0.0.0', port=8001, debug=True)
