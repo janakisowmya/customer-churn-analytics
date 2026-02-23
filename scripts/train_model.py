@@ -23,11 +23,12 @@ def train_model(file_path):
     df['Churn'] = le.fit_transform(df['Churn']) # Yes: 1, No: 0
     
     # Separate categorical and numerical
-    cat_cols = [col for col in df.columns if df[col].dtype == 'object']
-    num_cols = [col for col in df.columns if df[col].dtype in ['int64', 'float64'] and col != 'Churn']
+    cat_cols = df.select_dtypes(include=['object', 'string']).columns.tolist()
+    if 'Churn' in cat_cols:
+        cat_cols.remove('Churn')
     
     # One-hot encode categorical variables
-    df_final = pd.get_dummies(df, columns=cat_cols, drop_first=True)
+    df_final = pd.get_dummies(df, columns=cat_cols, drop_first=True).astype(float)
     
     # 3. Model Preparation
     X = df_final.drop('Churn', axis=1)
